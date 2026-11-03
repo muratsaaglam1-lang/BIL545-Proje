@@ -9,9 +9,11 @@ Bu depo, BIL545 Veri Madenciliğinde İleri Konular dersi kapsamında gerçekle�
 
 | Bilgi | Açıklama |
 |---|---|
-| Öğrenci | Murat Sağlam |
-| Öğrenci No | 264327008 |
-| Grup | Tek kişilik grup |
+| Öğrenci 1 | Murat Sağlam |
+| Öğrenci No 1| 264327008 |
+| Öğrenci 2 | Yasin Göktepe |
+| Öğrenci No 2| 264327007 |
+| Grup | 2 kişilik grup |
 | Ders | BIL545 – Veri Madenciliğinde İleri Konular |
 | Üniversite | Üsküdar Üniversitesi |
 
@@ -90,18 +92,26 @@ Notebook içerisindeki model karşılaştırma bölümünde McNemar testi uygula
 
 ## 6. Katkı Beyanı
 
-Proje tek kişilik grup çalışması olarak yürütülmüştür.
+Proje 2 kişilik grup çalışması olarak yürütülmüştür.
 
-**Murat Sağlam tarafından gerçekleştirilen çalışmalar:**
+## Contribution Statement – Grup Katkıları
 
-- Veri kümesinin araştırılması ve incelenmesi
-- Veri ön işleme ve keşifsel veri analizi
-- Sınıflandırma modellerinin kurulması ve değerlendirilmesi
-- Model sonuçlarının yorumlanması
-- Adillik analizlerinin gerçekleştirilmesi
-- Weka ile bağımsız model kontrolü
-- Notebook ve proje dokümantasyonunun hazırlanması
-- Sunum hazırlığı
+### Murat Sağlam
+- COMPAS veri setinin araştırılması ve veri keşif çalışmalarının yürütülmesi.
+- Veri ön işleme, temizleme ve modelleme süreçlerinin gerçekleştirilmesi.
+- Makine öğrenmesi modellerinin geliştirilmesi ve performans değerlendirmelerinin yapılması.
+- Python ortamında model sonuçlarının karşılaştırılması ve istatistiksel değerlendirmelerin gerçekleştirilmesi.
+- Jupyter/Google Colab notebook yapısının hazırlanması ve proje dokümantasyonunun oluşturulması.
+
+### Yasin Göktepe
+- ProPublica COMPAS araştırmasının incelenmesi ve kullanılan kaynakların doğrulanması.
+- Weka ortamında ZeroR ve J48 algoritmalarına ait sonuçların incelenmesi.
+- Python ve Weka ortamlarında elde edilen model sonuçlarının karşılaştırılması.
+- Irk ve cinsiyet gruplarına göre model performanslarının ve adalet değerlendirmelerinin incelenmesi.
+- Elde edilen bulguların yorumlanması ve proje sunumuna yönelik hazırlıkların yapılması.
+
+### Genel Açıklama
+Proje çalışması, grup üyeleri arasında belirlenen görev dağılımı doğrultusunda yürütülmüştür. Veri hazırlama, model geliştirme ve notebook oluşturma çalışmaları Murat Sağlam tarafından; literatür ve kaynak incelemesi, Weka sonuçlarının değerlendirilmesi, model karşılaştırmaları ve bulguların yorumlanmasına yönelik çalışmalar ise Yasin Göktepe tarafından üstlenilmiştir.
 
 Proje kapsamındaki çalışmaların ve sunumun sorumluluğu Murat Sağlam'a aittir.
 
