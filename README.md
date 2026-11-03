@@ -113,7 +113,7 @@ Proje 2 kişilik grup çalışması olarak yürütülmüştür.
 ### Genel Açıklama
 Proje çalışması, grup üyeleri arasında belirlenen görev dağılımı doğrultusunda yürütülmüştür. Veri hazırlama, model geliştirme ve notebook oluşturma çalışmaları Murat Sağlam tarafından; literatür ve kaynak incelemesi, Weka sonuçlarının değerlendirilmesi, model karşılaştırmaları ve bulguların yorumlanmasına yönelik çalışmalar ise Yasin Göktepe tarafından üstlenilmiştir.
 
-Proje kapsamındaki çalışmaların ve sunumun sorumluluğu Murat Sağlam'a aittir.
+Proje kapsamındaki çalışmaların ve sunumun sorumluluğu Murat Sağlam ve Yasin Göktepe'ye aittir.
 
 ## 7. Yapay Zekâ Kullanım Beyanı
 
