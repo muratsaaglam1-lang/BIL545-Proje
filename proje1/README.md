@@ -1,13 +1,112 @@
-# BIL545 - Proje 1
+# BIL545 – Veri Madenciliğinde İleri Konular
 
-## Proje Bilgileri
-- Ders: Veri Madenciliğinde İleri Konular
-- Üniversite: Üsküdar Üniversitesi
-- Öğrenci: Murat Sağlam
-- Öğrenci No: 264327008
+**Üsküdar Üniversitesi – Bilgisayar Mühendisliği Yüksek Lisans Programı**  
+**2026–2027 Güz Dönemi**
 
-## Proje Konusu
-COMPAS - Recidivism Risk Score Analysis
+Bu depo, BIL545 Veri Madenciliğinde İleri Konular dersi kapsamında gerçekleştirilen bireysel proje çalışmasını içerir.
 
-## Dosyalar
-Proje notebook'u ve Weka analiz ekran görüntüleri bu klasörde yer alacaktır.
+## 1. Öğrenci Bilgileri
+
+| Bilgi | Açıklama |
+|---|---|
+| Öğrenci | Murat Sağlam |
+| Öğrenci No | 264327008 |
+| Çalışma türü | Bireysel çalışma |
+| Ders | BIL545 – Veri Madenciliğinde İleri Konular |
+| Üniversite | Üsküdar Üniversitesi |
+
+## 2. Proje 1 – COMPAS Risk Skoru Analizi
+
+### Proje konusu
+
+ProPublica tarafından yayımlanan COMPAS (Correctional Offender Management Profiling for Alternative Sanctions) veri kümesi kullanılarak, iki yıl içinde yeniden tutuklanma durumunun sınıflandırılması ve model sonuçlarının değerlendirilmesi amaçlanmıştır.
+
+Çalışmada veri keşfi, ön işleme, veri sızıntısı kontrolleri, sınıflandırma algoritmaları, model değerlendirme ve alt gruplar açısından adillik incelemeleri gerçekleştirilmiştir.
+
+**Veri kaynağı:**  
+[ProPublica – COMPAS Analysis GitHub Repository](https://github.com/propublica/compas-analysis)
+
+**Veri kümesi:** `compas-scores-two-years.csv`
+
+**Lisans ve kullanım koşulları:**  
+Kaynak ProPublica deposunda veri kümesi için açıkça tanımlanmış ayrı bir lisans dosyası bulunmamaktadır. Bu nedenle veri kümesi için ayrıca bir açık kaynak lisansı iddia edilmemektedir. Veri kaynağına atıf yapılmış, veri dosyaları bu proje deposuna yeniden yüklenmemiştir.
+
+## 3. Veri Kümesinin İndirilmesi
+
+Veri kümesi ProPublica'nın resmî GitHub deposundan temin edilmektedir:
+
+https://github.com/propublica/compas-analysis
+
+Notebook içerisindeki veri yükleme adımları takip edilerek veri kümesi çalışma ortamına alınabilir.
+
+**Not:** Veri dosyaları GitHub proje deposuna eklenmemiştir. Bu tercih ders yönergesindeki veri paylaşım kuralına uygundur.
+
+## 4. Projenin Çalıştırılması
+
+1. `proje1/` klasöründeki `BIL545_Proje1_COMPAS_Murat_Saglam.ipynb` dosyasını açın.
+2. Notebook'u Google Colab ortamına aktarın.
+3. Gerekli kütüphanelerin kurulum hücrelerini çalıştırın.
+4. Veri yükleme adımını tamamlayın.
+5. Notebook hücrelerini yukarıdan aşağıya sırasıyla çalıştırın.
+6. Tüm hücrelerin hatasız tamamlandığını kontrol edin.
+
+## 5. Sonuç Özeti
+
+### Sınıflandırma modelleri
+
+Modeller çapraz doğrulama sonuçlarına göre değerlendirilmiştir.
+
+| Model | Balanced Accuracy | F1 Score | ROC AUC |
+|---|---:|---:|---:|
+| Gradient Boosting | 0.680 ± 0.016 | 0.638 ± 0.019 | 0.741 ± 0.016 |
+| Random Forest | 0.672 ± 0.014 | 0.637 ± 0.017 | 0.731 ± 0.016 |
+| k-NN | 0.656 ± 0.016 | 0.609 ± 0.016 | 0.702 ± 0.021 |
+| Decision Tree | 0.654 ± 0.012 | 0.625 ± 0.016 | 0.702 ± 0.013 |
+| Dummy Classifier | 0.500 ± 0.000 | 0.000 ± 0.000 | 0.500 ± 0.000 |
+
+Bu değerlendirmede Gradient Boosting en iyi aday model olarak seçilmiştir.
+
+### Weka ile bağımsız kontrol
+
+Python sonuçları Weka ortamında ZeroR ve J48 algoritmaları kullanılarak ayrıca kontrol edilmiştir.
+
+- ZeroR doğruluk oranı: %54.49
+- J48 doğruluk oranı: %64.89
+- J48 Kappa: 0.2805
+- J48 ROC Area: 0.677
+- J48 Weighted F-Measure: 0.643
+
+Weka sonuç ekran görüntüleri `proje1/` klasöründe bulunmaktadır.
+
+### Adillik değerlendirmesi
+
+Model sonuçları ırk ve cinsiyet grupları açısından ayrıca incelenmiştir. Gruplar arasında yanlış pozitif ve yanlış negatif oranlarının farklılaşabildiği gözlemlenmiştir. Özellikle küçük örneklem büyüklüğüne sahip grupların sonuçları dikkatli yorumlanmalıdır.
+
+Bu değerlendirmede kullanılan test bölmesi, ana model değerlendirmesindeki rastgelelik tohumundan farklıdır. Bu nedenle sonuçlar ana model tablosuyla doğrudan aynı deneyin çıktıları olarak değerlendirilmemelidir.
+
+### McNemar testi
+
+Notebook içerisindeki model karşılaştırma bölümünde McNemar testi uygulanmıştır. Ana notebook sonucunda p-değeri 0.1709 olarak elde edilmiştir. Sonuç, kullanılan karşılaştırma koşulları çerçevesinde yorumlanmalıdır.
+
+## 6. Katkı Beyanı
+
+Bu proje bireysel çalışma olarak Murat Sağlam tarafından yürütülmüştür. COMPAS veri setinin araştırılması, veri keşfi, veri ön işleme ve temizleme, modelleme, makine öğrenmesi algoritmalarının geliştirilmesi, performans değerlendirmeleri, Weka ile bağımsız kontrol, adillik incelemeleri, istatistiksel değerlendirmeler, notebook ve proje dokümantasyonunun hazırlanması Murat Sağlam tarafından gerçekleştirilmiştir.
+
+## 7. Yapay Zekâ Kullanım Beyanı
+
+Bu proje sürecinde ChatGPT, kod ve analiz adımlarının anlaşılması, hata ayıklama, sonuçların yorumlanması ve dokümantasyonun düzenlenmesi aşamalarında yardımcı araç olarak kullanılmıştır.
+
+Kodların çalıştırılması, elde edilen çıktıların kontrolü ve proje sonuçlarının değerlendirilmesi proje çalışması kapsamında gerçekleştirilmiştir.
+
+## 8. Kaynaklar
+
+1. ProPublica, *Machine Bias: Risk Assessments in Criminal Sentencing*.  
+   https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing/
+
+2. Larson, J., Mattu, S., Kirchner, L. ve Angwin, J. (2016). *How We Analyzed the COMPAS Recidivism Algorithm*. ProPublica.  
+   https://www.propublica.org/article/how-we-analyzed-the-compas-recidivism-algorithm/
+
+3. ProPublica – COMPAS Analysis Repository.  
+   https://github.com/propublica/compas-analysis
+
+4. Kaufman, S., Rosset, S., Perlich, C. ve Stitelman, O. (2012). *Leakage in Data Mining: Formulation, Detection, and Avoidance*. ACM Transactions on Knowledge Discovery from Data, 6(4).
