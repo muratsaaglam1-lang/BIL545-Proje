@@ -15,6 +15,8 @@ Bu depo, BIL545 Veri Madenciliğinde İleri Konular dersi kapsamında gerçekle�
 | Ders | BIL545 – Veri Madenciliğinde İleri Konular |
 | Üniversite | Üsküdar Üniversitesi |
 
+Proje Sunum Videosu : https://drive.google.com/file/d/1uFeGCBp82UyjmKDfNM9RFT4OWI7GFjmU/view?usp=sharing
+
 ## 2. Proje 1 – COMPAS Risk Skoru Analizi
 
 ### Proje konusu
